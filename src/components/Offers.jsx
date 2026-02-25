@@ -7,7 +7,7 @@ function Offers() {
   const handleReservar = (offer) => {
     openWhatsAppChat(
       content.whatsapp,
-      `Hola, me interesa reservar ${offer.title} en Residencias Kiwy`
+      `Hola, me interesa reservar ${offer.title} en Kiwy`
     )
   }
 

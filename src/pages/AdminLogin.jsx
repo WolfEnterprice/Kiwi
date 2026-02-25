@@ -30,7 +30,7 @@ function AdminLogin() {
           <h1 className="text-3xl font-900 uppercase italic mb-2">
             Panel <span className="text-secondary">Administrativo</span>
           </h1>
-          <p className="text-slate-400">Residencias Kiwy</p>
+          <p className="text-slate-400">Kiwy</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

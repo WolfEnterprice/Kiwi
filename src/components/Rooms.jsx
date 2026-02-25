@@ -10,7 +10,7 @@ function Rooms() {
   const handleConsult = (room) => {
     openWhatsAppChat(
       content.whatsapp,
-      `Hola, me gustaría consultar disponibilidad y tarifa de la ${room.name} en Residencias Kiwy`
+      `Hola, me gustaría consultar disponibilidad y tarifa de la ${room.name} en Kiwy`
     )
   }
 

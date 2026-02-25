@@ -1,6 +1,6 @@
-# Residencias Kiwy - Aplicación React
+# Kiwy - Aplicación React
 
-Aplicación web moderna para Residencias Kiwy construida con React, Vite y Tailwind CSS. Incluye un panel administrativo completo para gestionar el contenido del sitio.
+Aplicación web moderna para Kiwy construida con React, Vite y Tailwind CSS. Incluye un panel administrativo completo para gestionar el contenido del sitio.
 
 ## 🚀 Características
 

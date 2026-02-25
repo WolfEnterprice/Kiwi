@@ -12,7 +12,7 @@ function Footer() {
               <div className="size-8 bg-primary/10 border border-primary/30 rounded flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
                 <span className="material-symbols-outlined text-primary text-xl font-bold transition-transform duration-300 group-hover:scale-110">favorite</span>
               </div>
-              <h4 className="text-xl font-900 tracking-tight">Kiwy</h4>
+              <h4 className="font-logo text-2xl tracking-[0.15em] uppercase text-primary">Kiwy</h4>
             </div>
             <p className="text-slate-500 font-medium">
               Hospedaje cómodo y seguro en el corazón de la ciudad, con atención cercana y espacios pensados para tu descanso.
@@ -64,8 +64,9 @@ function Footer() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center text-slate-500 text-xs md:text-sm">
-          © 2024 Residencias Kiwy. Todos los derechos reservados.
+        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center text-slate-500 text-xs md:text-sm space-y-1">
+          <p>© 2024 Kiwy. Todos los derechos reservados.</p>
+          <p>Página desarrollada por <span className="font-semibold text-slate-400">WOLF ENTERPRISE</span></p>
         </div>
       </footer>
     </>

@@ -14,7 +14,8 @@ export default {
         'background-dark': '#020617',
       },
       fontFamily: {
-        "display": ["Space Grotesk", "sans-serif"]
+        "display": ["Space Grotesk", "sans-serif"],
+        "logo": ["Bebas Neue", "sans-serif"]
       },
       borderRadius: {
         "DEFAULT": "0.25rem",

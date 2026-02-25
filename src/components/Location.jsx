@@ -49,7 +49,7 @@ function Location() {
 
         <div className="relative rounded-xl overflow-hidden border border-primary/30 shadow-md transition-all duration-300 hover:border-primary/50 hover:shadow-neon-fuchsia">
           <iframe
-            title="Ubicación Residencias Kiwy"
+            title="Ubicación Kiwy"
             src={mapsEmbedUrl}
             className="w-full h-[260px] sm:h-[320px] md:h-[360px] lg:h-[400px] border-0"
             loading="lazy"

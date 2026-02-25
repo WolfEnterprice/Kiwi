@@ -12,7 +12,7 @@ function Gallery() {
               Nuestra <span className="text-primary">galería</span>
             </h3>
             <p className="text-slate-400 font-medium">
-              Conoce algunos de nuestros espacios y el ambiente que te espera en Residencias Kiwy.
+              Conoce algunos de nuestros espacios y el ambiente que te espera en Kiwy.
             </p>
           </div>
           <div className="flex gap-4">

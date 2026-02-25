@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useContent, ContentProvider } from '../context/ContentContext'
 import AdminContent from '../components/AdminContent'
@@ -34,14 +34,12 @@ function AdminDashboardContent() {
             </h1>
           </div>
           <div className="flex items-center gap-4">
-            <a 
-              href="/" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <Link 
+              to="/" 
               className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
             >
               Ver Sitio
-            </a>
+            </Link>
             <button
               onClick={handleLogout}
               className="bg-primary hover:bg-primary/80 text-white px-6 py-2 rounded-full font-bold shadow-neon-fuchsia transition-all active:scale-95 flex items-center gap-2"

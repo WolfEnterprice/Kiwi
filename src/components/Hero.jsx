@@ -29,7 +29,7 @@ function Hero() {
   const openWhatsApp = () => {
     openWhatsAppChat(
       content.whatsapp,
-      'Hola, me interesa conocer más sobre Residencias Kiwy'
+      'Hola, me interesa conocer más sobre Kiwy'
     )
   }
 
@@ -39,7 +39,7 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/40 to-background-dark z-10"></div>
         <img 
           className="w-full h-full object-cover opacity-50" 
-          alt="Fachada de Residencias Kiwy de noche" 
+          alt="Fachada de Kiwy de noche" 
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxnBRBbYd7WbOcsyPlGhgyg_xE5lAG8o2GmCoxBbC3JvtMeK8bRr2CmFIpR3bC8fpEkCYkXYNW-SMzzkcRJJSY6Qha1KT-bB-auUcnT0EmtpljCB8u8tlImuaIMeMFcxzYUWvOhBt2aO04ksDyLLqdVuxngrnVeNVT-_8u5czVuFTzc4SPvWeJ10fIhHjPNEkvkD2lOH_0JOxkRC1IWCitCVlWCHtgFtAPfvgTiW3q2CjngIhECyIuvOdsalIuf1gCpv_saMwmv5M0"
         />
       </div>

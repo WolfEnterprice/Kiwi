@@ -13,7 +13,7 @@ export const openWhatsAppChat = (phone, message) => {
   openInNewTab(url)
 }
 
-// Coordenadas de Residencias Kiwy
+// Coordenadas de Kiwy
 const KIWY_LAT = 5.069384403787749
 const KIWY_LNG = -75.51505606319438
 

@@ -33,7 +33,7 @@ function Header() {
   const openWhatsApp = () => {
     openWhatsAppChat(
       content.whatsapp,
-      'Hola, me interesa conocer más sobre Residencias Kiwy'
+      'Hola, me interesa conocer más sobre Kiwy'
     )
   }
 
@@ -48,8 +48,8 @@ function Header() {
           <div className="size-10 bg-primary/10 border border-primary/40 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-6">
             <span className="material-symbols-outlined text-primary text-2xl transition-transform duration-300 group-hover:scale-110">favorite</span>
           </div>
-          <h1 className="text-xl md:text-2xl font-800 tracking-tight group-hover:text-slate-50 transition-colors">
-            Residencias <span className="text-primary">Kiwy</span>
+          <h1 className="font-logo text-3xl md:text-4xl tracking-[0.2em] uppercase text-primary neon-text-fuchsia group-hover:opacity-90 transition-opacity">
+            Kiwy
           </h1>
         </Link>
         

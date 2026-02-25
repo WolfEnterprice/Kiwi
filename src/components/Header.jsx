@@ -44,11 +44,11 @@ function Header() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="size-10 bg-primary/10 border border-primary/40 rounded-lg flex items-center justify-center">
-            <span className="material-symbols-outlined text-primary text-2xl">favorite</span>
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="size-10 bg-primary/10 border border-primary/40 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-6">
+            <span className="material-symbols-outlined text-primary text-2xl transition-transform duration-300 group-hover:scale-110">favorite</span>
           </div>
-          <h1 className="text-xl md:text-2xl font-800 tracking-tight">
+          <h1 className="text-xl md:text-2xl font-800 tracking-tight group-hover:text-slate-50 transition-colors">
             Residencias <span className="text-primary">Kiwy</span>
           </h1>
         </Link>
@@ -57,48 +57,48 @@ function Header() {
           <a 
             href="#vibe"
             onClick={(e) => scrollToSection(e, '#vibe')}
-            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-all duration-300 link-underline"
           >
             Galería
           </a>
           <a 
             href="#rooms"
             onClick={(e) => scrollToSection(e, '#rooms')}
-            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-all duration-300 link-underline"
           >
             Habitaciones
           </a>
           <a 
             href="#location" 
             onClick={(e) => scrollToSection(e, '#location')}
-            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-all duration-300 link-underline"
           >
             Ubicación
           </a>
           <a 
             href="#offers" 
             onClick={(e) => scrollToSection(e, '#offers')}
-            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-all duration-300 link-underline"
           >
             Ofertas
           </a>
           <button 
             onClick={openWhatsApp}
-            className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all active:scale-95 flex items-center gap-2"
+            className="group/wa bg-primary hover:bg-primary/90 hover:scale-105 hover:shadow-neon-fuchsia text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all duration-300 active:scale-95 flex items-center gap-2"
           >
-            <span className="material-symbols-outlined text-sm">chat</span>
+            <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover/wa:animate-wiggle">chat</span>
             WHATSAPP
           </button>
           <Link 
             to="/admin"
-            className="text-xs font-semibold tracking-wide hover:text-primary transition-colors opacity-70 hover:opacity-100"
+            className="text-xs font-semibold tracking-wide hover:text-primary transition-all duration-300 opacity-70 hover:opacity-100 link-underline"
           >
             Admin
           </Link>
         </div>
 
         <button 
-          className="md:hidden text-primary"
+          className="md:hidden text-primary p-2 rounded-lg hover:bg-primary/10 active:scale-95 transition-all duration-300"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <span className="material-symbols-outlined text-3xl">
@@ -113,41 +113,41 @@ function Header() {
           <a 
             href="#vibe" 
             onClick={(e) => scrollToSection(e, '#vibe')}
-            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary hover:translate-x-1 transition-all duration-300"
           >
             Galería
           </a>
           <a 
             href="#rooms" 
             onClick={(e) => scrollToSection(e, '#rooms')}
-            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary hover:translate-x-1 transition-all duration-300"
           >
             Habitaciones
           </a>
           <a 
             href="#location" 
             onClick={(e) => scrollToSection(e, '#location')}
-            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary hover:translate-x-1 transition-all duration-300"
           >
             Ubicación
           </a>
           <a 
             href="#offers" 
             onClick={(e) => scrollToSection(e, '#offers')}
-            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary hover:translate-x-1 transition-all duration-300"
           >
             Ofertas
           </a>
           <button 
             onClick={openWhatsApp}
-            className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-md transition-all active:scale-95 flex items-center gap-2 justify-center"
+            className="bg-primary hover:bg-primary/90 hover:scale-[1.02] hover:shadow-neon-fuchsia text-white px-6 py-2 rounded-full text-sm font-semibold shadow-md transition-all duration-300 active:scale-95 flex items-center gap-2 justify-center"
           >
             <span className="material-symbols-outlined text-sm">chat</span>
             WHATSAPP
           </button>
           <Link 
             to="/admin"
-            className="text-xs font-bold uppercase tracking-widest hover:text-secondary transition-colors opacity-60 hover:opacity-100 text-center"
+            className="text-xs font-bold uppercase tracking-widest hover:text-secondary transition-all duration-300 opacity-60 hover:opacity-100 text-center hover:translate-x-1"
             onClick={() => setMobileMenuOpen(false)}
           >
             Admin

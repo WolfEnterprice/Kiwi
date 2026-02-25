@@ -45,7 +45,7 @@ function Hero() {
       </div>
       
       <div className="relative z-20 max-w-5xl mx-auto px-6 text-center space-y-6">
-        <span className="inline-block bg-primary/10 text-primary border border-primary/30 px-4 py-1 rounded-full text-xs font-semibold tracking-[0.2em] uppercase">
+        <span className="inline-block bg-primary/10 text-primary border border-primary/30 px-4 py-1 rounded-full text-xs font-semibold tracking-[0.2em] uppercase animate-float">
           En el centro de la ciudad
         </span>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-800 leading-tight tracking-tight text-slate-50">
@@ -59,11 +59,11 @@ function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-2">
           <button 
             onClick={openWhatsApp}
-            className="group relative px-8 py-3 bg-primary text-white font-semibold text-sm md:text-base rounded-lg shadow-md transition-all hover:bg-primary/90"
+            className="group relative px-8 py-3 bg-primary text-white font-semibold text-sm md:text-base rounded-lg shadow-md transition-all duration-300 hover:bg-primary/90 hover:scale-105 hover:shadow-neon-fuchsia active:scale-95"
           >
             <span className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-xl md:text-2xl">phone_iphone</span>
-              Reserva por WhatsApp: {content.whatsapp}
+              <span className="material-symbols-outlined text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110">phone_iphone</span>
+              Contactar por WhatsApp
             </span>
           </button>
           <p className="text-slate-400 max-w-xs text-left text-xs md:text-sm font-medium border-l border-primary/30 pl-4">
@@ -75,7 +75,7 @@ function Hero() {
       {/* Scroll Indicator */}
       {showScrollIndicator && (
         <div 
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer rounded-full p-2 transition-transform duration-300 hover:scale-125 hover:opacity-90"
           onClick={scrollToLocation}
         >
           <span className="material-symbols-outlined text-primary text-4xl">expand_more</span>

@@ -26,8 +26,8 @@ function Location() {
             <span className="text-primary">epicentro de la ciudad</span>
           </h3>
           <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <span className="material-symbols-outlined text-primary text-3xl">location_on</span>
+            <div className="flex items-start gap-4 group">
+              <span className="material-symbols-outlined text-primary text-3xl transition-transform duration-300 group-hover:scale-125 group-hover:drop-shadow-lg">location_on</span>
               <div>
                 <h4 className="text-2xl font-bold">{content.address}</h4>
                 <p className="text-slate-400 text-lg">{content.city}</p>
@@ -39,15 +39,15 @@ function Location() {
             <button
               type="button"
               onClick={openGoogleMaps}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 link-underline transition-all duration-300 hover:gap-3"
             >
-              <span className="material-symbols-outlined text-base">map</span>
+              <span className="material-symbols-outlined text-base transition-transform duration-300 hover:rotate-12">map</span>
               Ver en Google Maps
             </button>
           </div>
         </div>
 
-        <div className="relative rounded-xl overflow-hidden border border-primary/30 shadow-md">
+        <div className="relative rounded-xl overflow-hidden border border-primary/30 shadow-md transition-all duration-300 hover:border-primary/50 hover:shadow-neon-fuchsia">
           <iframe
             title="Ubicación Residencias Kiwy"
             src={mapsEmbedUrl}

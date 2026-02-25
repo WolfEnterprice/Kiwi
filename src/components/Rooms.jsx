@@ -48,14 +48,14 @@ function Rooms() {
             return (
               <article
                 key={room.id}
-                className="flex flex-col rounded-3xl bg-slate-900 text-slate-50 shadow-neon-fuchsia overflow-hidden border border-slate-800"
+                className="group/card flex flex-col rounded-3xl bg-slate-900 text-slate-50 overflow-hidden border border-slate-800 transition-all duration-300 hover:border-primary/40 hover:shadow-neon-fuchsia hover:-translate-y-2"
               >
-                <div className="relative h-32 bg-gradient-to-b from-primary/20 via-slate-900 to-slate-900">
+                <div className="relative h-32 bg-gradient-to-b from-primary/20 via-slate-900 to-slate-900 overflow-hidden">
                   {room.imageUrl ? (
                     <img
                       src={room.imageUrl}
                       alt={room.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110"
                     />
                   ) : null}
 
@@ -134,7 +134,7 @@ function Rooms() {
                   <button
                     type="button"
                     onClick={() => openDetails(room)}
-                    className="w-full rounded-full border border-slate-700 bg-slate-800 text-slate-100 text-xs md:text-sm font-medium py-2.5 hover:bg-slate-700 transition-colors"
+                    className="w-full rounded-full border border-slate-700 bg-slate-800 text-slate-100 text-xs md:text-sm font-medium py-2.5 hover:bg-slate-700 hover:border-slate-600 transition-all duration-300 active:scale-[0.98]"
                   >
                     Ver detalles y tarifas
                   </button>
@@ -142,9 +142,9 @@ function Rooms() {
                     type="button"
                     onClick={() => handleConsult(room)}
                     disabled={!isAvailable}
-                    className={`w-full rounded-full text-xs md:text-sm font-semibold py-2.5 flex items-center justify-center gap-2 transition-colors ${
+                    className={`w-full rounded-full text-xs md:text-sm font-semibold py-2.5 flex items-center justify-center gap-2 transition-all duration-300 active:scale-[0.98] ${
                       isAvailable
-                        ? 'bg-primary hover:bg-primary/90 text-white'
+                        ? 'bg-primary hover:bg-primary/90 hover:scale-[1.02] hover:shadow-neon-fuchsia text-white'
                         : 'bg-slate-700 text-slate-400 cursor-not-allowed'
                     }`}
                   >
@@ -159,12 +159,12 @@ function Rooms() {
       </div>
 
       {selectedRoom && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
-          <div className="w-full max-w-md md:max-w-lg bg-background-dark border border-slate-800 rounded-2xl shadow-neon-fuchsia p-6 space-y-4 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 animate-fade-in-up">
+          <div className="w-full max-w-md md:max-w-lg bg-background-dark border border-slate-800 rounded-2xl shadow-neon-fuchsia p-6 space-y-4 relative animate-scale-in">
             <button
               type="button"
               onClick={closeDetails}
-              className="absolute top-3 right-3 text-slate-400 hover:text-slate-100"
+              className="absolute top-3 right-3 text-slate-400 hover:text-slate-100 rounded-lg p-1 hover:bg-slate-800 transition-all duration-300"
             >
               <span className="material-symbols-outlined">close</span>
             </button>
@@ -218,7 +218,7 @@ function Rooms() {
               <button
                 type="button"
                 onClick={closeDetails}
-                className="flex-1 rounded-full border border-slate-700 bg-slate-900 text-slate-100 text-xs md:text-sm font-medium py-2.5 hover:bg-slate-800 transition-colors"
+                className="flex-1 rounded-full border border-slate-700 bg-slate-900 text-slate-100 text-xs md:text-sm font-medium py-2.5 hover:bg-slate-800 transition-all duration-300 active:scale-[0.98]"
               >
                 Cerrar
               </button>
@@ -228,7 +228,7 @@ function Rooms() {
                   handleConsult(selectedRoom)
                   closeDetails()
                 }}
-                className="flex-1 rounded-full bg-primary hover:bg-primary/90 text-white text-xs md:text-sm font-semibold py-2.5 flex items-center justify-center gap-2 transition-colors"
+                className="flex-1 rounded-full bg-primary hover:bg-primary/90 hover:scale-[1.02] hover:shadow-neon-fuchsia text-white text-xs md:text-sm font-semibold py-2.5 flex items-center justify-center gap-2 transition-all duration-300 active:scale-[0.98]"
               >
                 <span className="material-symbols-outlined text-sm md:text-base">call</span>
                 Consultar por WhatsApp

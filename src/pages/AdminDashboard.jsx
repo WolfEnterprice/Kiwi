@@ -59,6 +59,7 @@ function AdminDashboardContent() {
           <div className="flex gap-2">
             {[
               { id: 'general', label: 'General', icon: 'settings' },
+              { id: 'rooms', label: 'Habitaciones', icon: 'bed' },
               { id: 'offers', label: 'Ofertas', icon: 'local_offer' },
               { id: 'gallery', label: 'Galería', icon: 'photo_library' }
             ].map(tab => (

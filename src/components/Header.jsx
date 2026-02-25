@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useContent } from '../context/ContentContext'
+import { openWhatsAppChat } from '../services/contactService'
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { content } = useContent()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,58 +31,67 @@ function Header() {
   }
 
   const openWhatsApp = () => {
-    const message = encodeURIComponent('Hola, me interesa conocer más sobre Residencias Kiwy')
-    window.open(`https://wa.me/3206425367?text=${message}`, '_blank')
+    openWhatsAppChat(
+      content.whatsapp,
+      'Hola, me interesa conocer más sobre Residencias Kiwy'
+    )
   }
 
   return (
-    <header 
+    <header
       className={`fixed top-0 w-full z-50 backdrop-blur-md border-b border-primary/20 transition-colors ${
-        scrolled ? 'bg-background-dark/95' : 'bg-background-dark/80'
+        scrolled ? 'bg-background-dark/95 shadow-lg' : 'bg-background-dark/80'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <div className="size-10 bg-primary rounded-lg flex items-center justify-center shadow-neon-fuchsia">
-            <span className="material-symbols-outlined text-white text-3xl">favorite</span>
+          <div className="size-10 bg-primary/10 border border-primary/40 rounded-lg flex items-center justify-center">
+            <span className="material-symbols-outlined text-primary text-2xl">favorite</span>
           </div>
-          <h1 className="text-2xl font-800 tracking-tighter uppercase italic">
-            Residencias <span className="text-secondary">Kiwy</span>
+          <h1 className="text-xl md:text-2xl font-800 tracking-tight">
+            Residencias <span className="text-primary">Kiwy</span>
           </h1>
         </Link>
         
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           <a 
-            href="#vibe" 
+            href="#vibe"
             onClick={(e) => scrollToSection(e, '#vibe')}
-            className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
           >
-            Vibe
+            Galería
+          </a>
+          <a 
+            href="#rooms"
+            onClick={(e) => scrollToSection(e, '#rooms')}
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+          >
+            Habitaciones
           </a>
           <a 
             href="#location" 
             onClick={(e) => scrollToSection(e, '#location')}
-            className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
           >
             Ubicación
           </a>
           <a 
             href="#offers" 
             onClick={(e) => scrollToSection(e, '#offers')}
-            className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
           >
             Ofertas
           </a>
           <button 
             onClick={openWhatsApp}
-            className="bg-primary hover:bg-primary/80 text-white px-6 py-2 rounded-full font-bold shadow-neon-fuchsia transition-all active:scale-95 flex items-center gap-2"
+            className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all active:scale-95 flex items-center gap-2"
           >
             <span className="material-symbols-outlined text-sm">chat</span>
             WHATSAPP
           </button>
           <Link 
             to="/admin"
-            className="text-xs font-bold uppercase tracking-widest hover:text-secondary transition-colors opacity-60 hover:opacity-100"
+            className="text-xs font-semibold tracking-wide hover:text-primary transition-colors opacity-70 hover:opacity-100"
           >
             Admin
           </Link>
@@ -101,27 +113,34 @@ function Header() {
           <a 
             href="#vibe" 
             onClick={(e) => scrollToSection(e, '#vibe')}
-            className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
           >
-            Vibe
+            Galería
+          </a>
+          <a 
+            href="#rooms" 
+            onClick={(e) => scrollToSection(e, '#rooms')}
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
+          >
+            Habitaciones
           </a>
           <a 
             href="#location" 
             onClick={(e) => scrollToSection(e, '#location')}
-            className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
           >
             Ubicación
           </a>
           <a 
             href="#offers" 
             onClick={(e) => scrollToSection(e, '#offers')}
-            className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
+            className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
           >
             Ofertas
           </a>
           <button 
             onClick={openWhatsApp}
-            className="bg-primary hover:bg-primary/80 text-white px-6 py-2 rounded-full font-bold shadow-neon-fuchsia transition-all active:scale-95 flex items-center gap-2 justify-center"
+            className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-md transition-all active:scale-95 flex items-center gap-2 justify-center"
           >
             <span className="material-symbols-outlined text-sm">chat</span>
             WHATSAPP

@@ -8,10 +8,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary": "#ea1f5c",
-        "secondary": "#99CC33",
-        "background-light": "#f8f6f6",
-        "background-dark": "#0a0a0a",
+        primary: '#6366f1', // índigo suave
+        secondary: '#22c55e', // verde acento
+        'background-light': '#f9fafb',
+        'background-dark': '#020617',
       },
       fontFamily: {
         "display": ["Space Grotesk", "sans-serif"]
@@ -23,8 +23,8 @@ export default {
         "full": "9999px"
       },
       boxShadow: {
-        'neon-fuchsia': '0 0 15px rgba(234, 31, 92, 0.6), 0 0 5px rgba(234, 31, 92, 0.4)',
-        'neon-green': '0 0 15px rgba(153, 204, 51, 0.6), 0 0 5px rgba(153, 204, 51, 0.4)',
+        'neon-fuchsia': '0 12px 30px rgba(99, 102, 241, 0.25)',
+        'neon-green': '0 12px 30px rgba(34, 197, 94, 0.25)',
       },
       animation: {
         'spin-slow': 'spin 8s linear infinite',

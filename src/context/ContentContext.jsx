@@ -10,12 +10,47 @@ const defaultContent = {
   heroTitle: 'En el corazón de la ciudad,',
   heroSubtitle: 'donde tus ganas',
   heroDescription: 'encuentran el lugar',
+  rooms: [
+    {
+      id: 1,
+      name: 'Suite Estándar',
+      subtitle: 'Ambiente íntimo',
+      price: 50000,
+      baseHours: 4,
+      status: 'available',
+      favorite: false,
+      imageUrl: '',
+      amenities: ['wifi', 'tv', 'parking']
+    },
+    {
+      id: 2,
+      name: 'Suite VIP Temática',
+      subtitle: 'Jacuzzi & Neon',
+      price: 85000,
+      baseHours: 4,
+      status: 'available',
+      favorite: true,
+      imageUrl: '',
+      amenities: ['wifi', 'tv', 'jacuzzi', 'parking']
+    },
+    {
+      id: 3,
+      name: 'Suite Presidencial',
+      subtitle: 'Fiesta privada',
+      price: 120000,
+      baseHours: 4,
+      status: 'unavailable',
+      favorite: false,
+      imageUrl: '',
+      amenities: ['wifi', 'tv', 'jacuzzi', 'parking', 'minibar']
+    }
+  ],
   offers: [
     {
       id: 1,
       title: 'Plan Cumpleaños',
       subtitle: 'Cumpleaños',
-      description: 'Celebra tu nivel más alto con nosotros. Decoración neon, bebidas de cortesía y la mejor vibra de la ciudad.',
+      description: 'Celebra tu nivel más alto con nosotros. Decoración especial, bebidas de cortesía y la mejor vibra de la ciudad.',
       active: true
     }
   ],
@@ -53,7 +88,12 @@ export function ContentProvider({ children }) {
   useEffect(() => {
     const savedContent = localStorage.getItem('kiwy_content')
     if (savedContent) {
-      setContent(JSON.parse(savedContent))
+      const parsed = JSON.parse(savedContent)
+      setContent({
+        ...defaultContent,
+        ...parsed,
+        rooms: parsed.rooms || defaultContent.rooms
+      })
     }
   }, [])
 
@@ -106,6 +146,17 @@ export function ContentProvider({ children }) {
     })
   }
 
+  const updateRoom = (roomId, roomData) => {
+    const updatedRooms = content.rooms.map(room =>
+      room.id === roomId ? { ...room, ...roomData } : room
+    )
+    updateContent({ rooms: updatedRooms })
+  }
+
+  const setRoomStatus = (roomId, status) => {
+    updateRoom(roomId, { status })
+  }
+
   return (
     <ContentContext.Provider value={{
       content,
@@ -115,7 +166,9 @@ export function ContentProvider({ children }) {
       deleteOffer,
       updateGalleryImage,
       addGalleryImage,
-      deleteGalleryImage
+      deleteGalleryImage,
+      updateRoom,
+      setRoomStatus
     }}>
       {children}
     </ContentContext.Provider>

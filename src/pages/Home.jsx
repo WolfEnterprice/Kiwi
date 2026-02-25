@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import Location from '../components/Location'
 import Gallery from '../components/Gallery'
 import Offers from '../components/Offers'
+import Rooms from '../components/Rooms'
 import Footer from '../components/Footer'
 import { ContentProvider } from '../context/ContentContext'
 
@@ -43,6 +44,7 @@ function Home() {
         <Header />
         <main className="pt-20">
           <Hero />
+          <Rooms />
           <Location />
           <Gallery />
           <Offers />

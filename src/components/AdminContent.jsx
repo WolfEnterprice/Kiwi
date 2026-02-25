@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useContent } from '../context/ContentContext'
 
 function AdminContent({ activeTab }) {
-  const { content, updateContent, updateOffer, addOffer, deleteOffer, updateGalleryImage, addGalleryImage, deleteGalleryImage } = useContent()
+  const { content, updateContent, updateOffer, addOffer, deleteOffer, updateGalleryImage, addGalleryImage, deleteGalleryImage, updateRoom, setRoomStatus } = useContent()
 
   if (activeTab === 'general') {
     return <GeneralSettings content={content} updateContent={updateContent} />
@@ -22,6 +22,15 @@ function AdminContent({ activeTab }) {
       addGalleryImage={addGalleryImage}
       deleteGalleryImage={deleteGalleryImage}
     />
+  }
+  if (activeTab === 'rooms') {
+    return (
+      <RoomsManagement
+        rooms={content.rooms || []}
+        updateRoom={updateRoom}
+        setRoomStatus={setRoomStatus}
+      />
+    )
   }
   return null
 }
@@ -302,6 +311,132 @@ function OffersManagement({ offers, updateOffer, addOffer, deleteOffer }) {
             </div>
           </div>
         ))}
+      </div>
+    </div>
+  )
+}
+
+function RoomsManagement({ rooms, setRoomStatus }) {
+  const total = rooms.length
+  const available = rooms.filter(room => room.status === 'available').length
+  const unavailable = total - available
+  const avgRate =
+    total > 0
+      ? Math.round(
+          rooms.reduce((sum, room) => sum + (room.price || 0), 0) / total
+        )
+      : 0
+
+  const formatPrice = (value) =>
+    new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(value)
+
+  return (
+    <div className="bg-black border border-primary/30 rounded-2xl p-8 shadow-neon-fuchsia space-y-8">
+      <h2 className="text-3xl font-900 uppercase italic mb-2">
+        Gestión de <span className="text-secondary">Habitaciones</span>
+      </h2>
+      <p className="text-slate-400 text-sm mb-4">
+        Cambia el estado de cada suite entre disponible y no disponible. Se actualizará de inmediato en la página pública.
+      </p>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="rounded-xl bg-slate-900 border border-slate-800 px-4 py-3 flex items-center gap-3">
+          <span className="material-symbols-outlined text-primary">hotel</span>
+          <div>
+            <p className="text-xs text-slate-400 uppercase tracking-wide">Total suites</p>
+            <p className="text-lg font-bold text-slate-50">{total}</p>
+          </div>
+        </div>
+        <div className="rounded-xl bg-emerald-900/40 border border-emerald-500/40 px-4 py-3 flex items-center gap-3">
+          <span className="material-symbols-outlined text-emerald-400">check_circle</span>
+          <div>
+            <p className="text-xs text-emerald-200 uppercase tracking-wide">Disponibles</p>
+            <p className="text-lg font-bold text-emerald-100">{available}</p>
+          </div>
+        </div>
+        <div className="rounded-xl bg-red-900/40 border border-red-500/40 px-4 py-3 flex items-center gap-3">
+          <span className="material-symbols-outlined text-red-300">cancel</span>
+          <div>
+            <p className="text-xs text-red-200 uppercase tracking-wide">No disponibles</p>
+            <p className="text-lg font-bold text-red-100">{unavailable}</p>
+          </div>
+        </div>
+        <div className="rounded-xl bg-slate-900 border border-slate-800 px-4 py-3 flex items-center gap-3">
+          <span className="material-symbols-outlined text-primary">payments</span>
+          <div>
+            <p className="text-xs text-slate-400 uppercase tracking-wide">Tarifa 4h prom.</p>
+            <p className="text-lg font-bold text-slate-50">
+              {avgRate > 0 ? formatPrice(avgRate) : '--'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-4 space-y-4">
+        {rooms.map((room) => {
+          const isAvailable = room.status === 'available'
+          return (
+            <div
+              key={room.id}
+              className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-slate-900 border border-slate-800 rounded-xl p-4"
+            >
+              <div className="flex items-start gap-3">
+                <div className="size-14 rounded-lg overflow-hidden bg-slate-800 flex-shrink-0">
+                  {room.imageUrl ? (
+                    <img
+                      src={room.imageUrl}
+                      alt={room.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-slate-500 text-xs">
+                      Sin foto
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-50">{room.name}</p>
+                  <p className="text-xs text-slate-400">{room.subtitle}</p>
+                  <p className="text-xs text-slate-400 mt-1">
+                    {room.price ? formatPrice(room.price) : '--'} · {room.baseHours}h base
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <span
+                  className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold ${
+                    isAvailable
+                      ? 'bg-emerald-900/40 text-emerald-200'
+                      : 'bg-red-900/40 text-red-200'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-sm">
+                    {isAvailable ? 'check_circle' : 'cancel'}
+                  </span>
+                  {isAvailable ? 'Disponible' : 'No disponible'}
+                </span>
+                {isAvailable ? (
+                  <button
+                    type="button"
+                    onClick={() => setRoomStatus(room.id, 'unavailable')}
+                    className="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-semibold transition-colors"
+                  >
+                    Marcar no disponible
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setRoomStatus(room.id, 'available')}
+                    className="px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-600 text-slate-900 text-xs font-semibold transition-colors"
+                  >
+                    Marcar disponible
+                  </button>
+                )}
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )
